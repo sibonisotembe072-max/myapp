@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    padding:0;
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    background-color:whitesmoke;
+    display:flex;
+    gap:20px;
+    color:black;
+    padding:10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+}
+.learn{
+    width:fit-content;
+    height:fit-content;
+    padding:8px;
+    max-width: 400px;
+    min-width: 100px;
+    border-radius: 10px;
+
+}
+#tr1{
+    
+    color:black;
+    
+}
+
+#tr2{
+   
+    color:black;
+    font-size: 10px;
+    
+}
+.table{
+    flex-wrap: wrap;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:10px;
+
+}
+#tr2:hover{
+    background-color: grey;
+}
+</style>
+
+<body>
+    <header>
+        <h1>Durban North college</h1>
+        <div class="learn">
+        <h4>College management system</h4>
+        </div>
+        {%block  lengthh %}
+    <h2> Students Registered  : {{lengthh}} </h2>
+    {% endblock %}
+    
+        
+    </header>
+    <br>
+    
+    
+  
+       <table border="1" cellpadding="10">
+        <tr id="tr1"> 
+            <th>ID</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>email</th>
+            <th>contact</th>
+            <th>address</th>
+            <th>student number</th>
+            <th>Registered_on</th>
+            <th>Total_paid</th>
+
+        
+          
+        </tr>
+
+        {% for student in students %}
+         
+
+        <tr id="tr2">
+            <td>{{student[0]}}</td>
+            <td>{{student[1]}}</td>
+            <td>{{student[2]}}</td>
+            <td>{{student[3]}}</td>
+            <td>{{student[4]}}</td>
+            <td>{{student[5]}}</td>
+            <td>{{student[6]}}</td>
+            <td>{{student[7]}}</td>
+            <td>{{student[8]}}</td>
+            <td ><a href="/profile/{{student[0]}}" method='POST' style="color:black;text-decoration: none;"><b>View profile</b></a></td>
+         
+            
+   
+        </tr>
+        {% endfor %}
+    </table>
+ 
+
+
+
+
+</body>

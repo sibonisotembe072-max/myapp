@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        background-color: white;
+    }
+header{
+    background-color:whitesmoke;
+    gap:20px;
+    color:black;
+    padding:10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+    padding:20px;
+    justify-content:center;
+    text-align:center;
+
+
+}
+.learn{
+    width:fit-content;
+    height:fit-content;
+    padding:8px;
+    max-width: 400px;
+    min-width: 100px;
+    border-radius: 10px;
+
+}
+#hesh{
+    color:green;
+    width:20px;
+}
+.box1{
+    width:fit-content;
+    height:fit-content;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    text-align:center;
+    justify-content:center;
+    gap:10px;
+    padding:10px;
+    margin-left:20px;
+    color:black;
+    box-shadow:6px 6px 6px 6px grey;
+    
+
+}
+.box1:hover{
+    box-shadow: 5px 5px 5px darkblue;
+
+
+}
+button{
+    outline:none;
+    border:none;
+
+}
+.menu{
+    width:100%;
+    height:fit-content;
+    text-align: center;
+    justify-content:center ;
+    padding:10px;
+    align-items:center;
+    gap:10px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+</style>
+
+
+<body>
+   
+    <header>
+       <h1>Durban North College</h1>
+        <p>Total paid : {{student[8]}}.00</p>
+        <ul style=" list-style: none; gap:5px;">
+            <li><h1>  {{student[1]}}  {{student[2]}}</h1></li>
+              <li><h3><button>student number </button> {{student[6]}}</h3></li>
+            
+        </ul>
+
+
+    </header>
+</main>
+ <p id="view"></p>
+    
+        <div class="menu">
+                <div class="box1">
+                    <button onclick="adding_payment()"> Add payment </button>
+                   
+
+                </div><br>
+
+               
+        
+
+            
+        
+
+             
+                <div class="box1">
+                    <button onclick="change()">update student info </button>
+                </div><br>
+    
+
+             
+                
+                 <div class="box1">
+                    <a href="/viewer/{{student[1]}}" style="color:black;text-decoration:none;">view {{student[1]}} payments </a>
+                </div><br>
+            </div>
+
+    </main>
+<script>
+    
+
+function adding_payment(){
+       
+               
+    
+        document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;">
+          <a href='/kill' >✖️</a>
+           <h1 ><b>payment amount</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+           <form action='/amount' METHOD="POST">
+           
+
+           <div class="labels"><br>
+           <input type="number" name="student_id"   value={{student[0]}}><br><br>
+           <input type="text" name="student_name"  value={{student[1]}}><br><br>
+           <input type="text" name="student_surname"  value={{student[2]}}><br><br>
+           <input type="number" name="student_number"   value={{student[6]}}><br><br>
+
+           <input type="number" name="amount"   placeholder="enter amount"><br><br>
+           </div><br>
+           <button type="submit">Submit</button>
+            
+
+           
+
+           </form>
+
+
+           
+           </div>`
+            
+        
+    }
+    function choosestudent(){
+    
+        document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;">
+          <a href='/kill' >✖️</a>
+           <h1 ><b>{student}</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+           <form action='/proceed' method=POST>
+           
+
+           <div class="labels"><br>
+           <label>Amount :</label>
+           <input type="number" name="student_number_update" id="student_number_update placeholder="R">
+           </div><br>
+           <button type="submit">proceed </button>
+
+           </form>
+
+
+           
+           </div>`
+        
+    }
+     function change(){
+    
+        document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;">
+          <a href='/kill' >✖️</a>
+           <h1 ><b>...</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+           <form action='/proceed/{{student[0]}}' method=POST>
+           
+
+           <div class="labels"><br>
+           <input type="text" name="name" value="{{student[1]}}"><br><br>
+            <input type="text" name="surname" value="{{student[2]}}"><br><br>
+               <input type="text" name="email" value="{{student[3]}}"><br><br>
+                  <input type="text" name="cell" value="{{student[4]}}"><br><br>
+                     <input type="text" name="address" value="{{student[5]}}"><br><br>
+                        <input type="text" name="number" value="{{student[6]}}"><br><br>
+                           <input type="text" name="student_number_update" value="{{student[7]}}"><br><br>
+                              <input type="text" name="total" value="R{{student[8]}}">
+
+             
+           </div><br>
+           <button type="submit">proceed </button>
+
+           </form>
+
+
+           
+           </div>`
+        
+    }
+</script>
+</body>

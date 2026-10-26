@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body{
+    padding:0;
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    background-color:whitesmoke;
+    display:flex;
+    gap:20px;
+    color:black;
+    padding:10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+    
+}
+header:hover{
+    
+    box-shadow: 5px 5px 5px darkblue;
+    
+}
+.learn{
+    width:fit-content;
+    height:fit-content;
+    padding:8px;
+    max-width: 400px;
+    min-width: 100px;
+    border-radius: 10px;
+
+}
+.box1{
+    width:fit-content;
+    height:fit-content;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    text-align:center;
+    justify-content:center;
+    gap:10px;
+    padding:10px;
+    margin-left:20px;
+    color:black;
+    box-shadow:6px 6px 6px 6px darkgray;
+    
+
+}
+.a{
+    color:black;
+
+}
+.box1:hover{
+    box-shadow: 5px 5px 5px darkblue;
+
+
+}
+.menu{
+    width:100%;
+    height:fit-content;
+    text-align: center;
+    justify-content:center ;
+    padding:10px;
+    align-items:center;
+    gap:10px;
+    display:flex;
+    flex-wrap: wrap;
+}
+button{
+    color:black;
+    outline:none;
+    border:none;
+    cursor:pointer;
+    font-size:10px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+ a{
+    text-decoration: none;
+    font-size:10px;
+    color:black;
+    cursor:pointer;
+    font-weight:22px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#student_query{
+    width:200px;
+    height:25px;
+    min-width:50px;
+
+}
+
+#proceed{
+    background-color: green;
+    color:white;
+    outline:none;
+    border:none;
+    cursor:pointer;
+    font-size:22px;
+
+}
+#kill{
+    background-color: white;
+    margin-left: 70%;
+    margin-top: 2px;
+    text-align: right;
+    font-size: 100px;
+    color:black;
+}
+#kill:hover{
+    size: 70px;
+
+
+}
+
+#btnd{
+    color:black;
+    outline:none;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    border-radius: 10px;
+    
+
+}
+#btnd:hover{
+    border-radius:5px ;
+    background-color:black;
+    color:white;
+}
+#click_me{
+    background-color: white;
+    color:green;
+    outline:none;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+    border-radius: 10px;
+    
+}
+header ul{
+    display:flex;
+    list-style: none;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+    
+</style>
+<body>
+    <header>
+        <ul>
+            <li>
+        <h1>Durban North College</h1>
+            </li>
+            <li>
+        <div class="learn">
+        <h4>College Management system</h4>
+        </div>
+            
+    </li> 
+    <li>
+            <div class="drop">
+          <button onclick="down()" id="click_me">Contact us Now</button>
+
+            <p id ="dop"></p>
+        </div>
+    </li>
+    <li>
+        <button onclick="how()">How to use this system</button>
+    </li>
+</ul>
+
+    </header>
+    <br>
+    <p id="pop"></p>
+   
+    <main>
+        <p id = "view"> </p>
+         <div class="menu">
+                <div class="box1">
+                <button onclick="register()"> 2027 Enrolment form </button>
+                </div><br>
+
+                <div class="box1">
+                <a href='/portal' id="view"> View All students </a>
+                </div><br>
+        
+
+            
+                <div class="box1">
+                <button onclick="search()">Search Stundents</button>
+                </div><br>
+                <div class="box1">
+                <button onclick="f_change()"> update / delete students</button>
+                </div><br>
+    
+
+             
+                <div class="box1">
+                <button> our services </button>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+    </main>
+       
+  <script>
+        function down(){
+            document.getElementById("click_me").innerHTML="";
+         document.getElementById("dop").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          text-align:center;
+          color :black; 
+          padding:5px;
+          gap:5px;
+          display:flex;
+          background-color:white;
+          border-radius:20px;
+          flex-wrap:wrap;
+          min-width:70px;">
+          <button id="btnd">Facebook</button>
+          <button id="btnd">Whatsapp</button>
+          <button id="btnd"> X </button> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  
+          <a href ='/close'>❌</a>
+          </div>`
+        }
+    function search(){
+         document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;
+          ;">
+          <h1 ><b>Search Students</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+          
+           <form action='/query' method='POST'>
+          <label>Student Number  : </label><br><br>
+          <input type="text" name="student_query" id="student_query"><br><br>
+           <button type="submit">Submit </button>
+           </form>
+          </div>`
+
+
+
+
+    }
+    
+    function register(){
+    
+        const stu_number =Math.floor(Math.random()*10000000);
+        document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          text-align:center;
+          color : black; 
+          padding:10px;">
+          <a href='/kill' >✖️</a>
+          
+           <h4 ><b> Durban north 2027 enrolment form</b> </h4>
+           <hr style="width:80%; height:8px; background-color:whitesmoke;">
+           <form action='/enrol' method="POST">
+
+           
+           <fieldset style="border:4px solid; border-radius:10px;">
+           <legend><b>Student personal details</b></legend>
+           <div class="labels"><br>
+           <input type="text" name="student_name" id="student_name" placeholder="student name"  autocomplete="given-name">
+           </div><br>
+
+           <div class="labels"><br>
+           <input type="text" name="student_surname" id="student_surname" placeholder="student surname"  autocomplete="family-name">
+           </div><br>
+
+           <div class="labels"><br>
+           <input type="email" name="student_email" id="student_email" placeholder="student email">
+           </div><br>
+
+           <div class="labels"><br>
+           <input type="number" name="student_contacts" value="+27" id="student_contacts" placeholder="student cell" >
+           </div><br>
+
+           <div class="labels"><br>
+           <input type="text" name="student_address" id="student_address" placeholder="student address" >
+           </div><br>
+           <div class="labels"><br>
+           <input type="number" name="registration" id="registration" placeholder="registration_amount" >
+           </div><br>
+           <div class="labels"><br>
+           <label>Student_Number :</label>
+           <input type="text" name="student_number" hidden placeholder=${stu_number} value=${stu_number}  id="student_number" >
+            <p style="color:red;">⚠️ <b>  Student number will be generated randomly , please receive student number from database</b></p>
+           
+
+           </div><br>
+
+
+          
+           <button type="submit">Submit </button>
+           </fieldset>
+
+           </form>
+
+
+           
+           </div>`
+        
+    }
+   
+function kill(){
+    window.location.href="templates/form.html";
+}
+
+function close(){
+    window.location.href="templates/form.html";
+}
+function f_change(){
+    
+        document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;">
+          <a href='/kill' >✖️</a>
+           <h1 ><b> update student</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+           <form action='/proceed' method=POST>
+           
+
+           <div class="labels"><br>
+           <label>Student number :</label>
+           <input type="text" name="student_number_update" id="student_number_update">
+           </div><br>
+           <button type="submit">proceed </button>
+
+           </form>
+
+
+           
+           </div>`
+        
+    }
+    function how(){
+         document.getElementById("view").innerHTML=`<div style=
+        "width: 90%;
+         height:fit-content;
+          border:5px solid green;
+          text-align:center;
+          color : green; 
+          padding:10px;
+          ;">
+          <h1 ><b>How to use this system</b> </h1>
+           <hr style="width:80%; height:8px; background-color:green;">
+          
+          <h4>This is a school management system(SmS) which easy staff workload. This system is based on CRUD .. the staff will be able to interact with system by
+          adding ,deleting , updating or read info on database.<br><br>
+
+          <button>Step 1</button>
+          <ul>
+          <li>The only way you can find  students on this system is when student is added via enrolment form</li>
+          <li>when student is added on the database you find student by using search option that will strictly happen  when you have student number or you can query student by name
+          </li>
+          <li>If you see a need of updating or deleting student the responsible party will be required to search the targeted student 
+          by student number (RECOMENDED) or name</li>
+
+          </ul>
+
+
+          </div>`
+
+
+
+
+    }
+    function clean(){
+        const find=document.querySelectorAll("div");
+        const choose=find[3]
+    }
+
+    
+        
+    
+
+
+  
+   
+
+           
+    
+    
+  </script>
+    </body>
+</body>
+</html>

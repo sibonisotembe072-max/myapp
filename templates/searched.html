@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+header{
+    background-color:green;
+    display:flex;
+    gap:20px;
+    color:white;
+    padding:10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+
+}
+.learn{
+    width:200px;
+    height:fit-content;
+    padding:8px;
+    max-width: 400px;
+    min-width: 100px;
+    border :double white 5px ;
+    border-radius: 10px;
+
+}
+#hesh{
+    color:green;
+    width:20px;
+}
+</style>
+
+<body>
+    <h2> Results   : </h2>
+    <main>
+    <br><br><br>
+     {% block results%}
+    <hr style="background-color:green; width:20px;">
+    <table border="1" cellpadding="10">
+       
+        <tr> 
+            <th>ID</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>email</th>
+            <th>contact</th>
+            <th>address</th>
+            <th>student number</th>
+        
+          
+        </tr>
+        <tr>
+            <td>{{results[0]}}</td>
+            <td>{{results[1]}}</td>
+            <td>{{results[2]}}</td>
+            <td>{{results[3]}}</td>
+            <td>{{results[4]}}</td>
+            <td>{{results[5]}}</td>
+            <td>{{results[6]}}</td>
+         
+            
+   
+        </tr>
+        
+    </table>
+{% endblock %}
+ 
+<hr id ="hesh">
+    </main>
+
+</body>
